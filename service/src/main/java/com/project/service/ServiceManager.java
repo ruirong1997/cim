@@ -1,11 +1,10 @@
-package com.project.common.services;
+package com.project.service;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.util.Log;
 
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class ServiceManager {
     public static void startServices(Context context){
         //查询服务是否已经开启
         //消息推送服务
-        if (!isServiceExisted(context,"com.project.common.services.MsgPushService")){
+        if (!isServiceExisted(context,"com.project.service.MsgPushService")){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(new Intent(context, MsgPushService.class));
             } else {
@@ -38,7 +37,7 @@ public class ServiceManager {
             }
         }
         //监测保活服务
-        if (!isServiceExisted(context,"com.project.common.services.KeepAliveService")){
+        if (!isServiceExisted(context,"com.project.service.KeepAliveService")){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(new Intent(context, KeepAliveService.class));
             } else {

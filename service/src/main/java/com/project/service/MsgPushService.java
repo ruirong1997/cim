@@ -1,4 +1,4 @@
-package com.project.common.services;
+package com.project.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -7,6 +7,10 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.project.common.Constance;
+
+@Route(path = Constance.SERVICE_MSG_PUSH)
 public class MsgPushService extends Service {
 
     private static final String TAG = "MsgPushService";

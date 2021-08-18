@@ -72,7 +72,7 @@ public class ChatFragment extends BaseFragment<FragmentChatBinding> {
     @Override
     public void Load(View view) {
         for (int i = 0; i < 100 ; i++){
-            chat_msg_list.add(new MsgContext("1321421","test"+i , "msg"+ i , "123456789213456749849198194196811891","testUser" ,"132","1323","123"));
+            chat_msg_list.add(new MsgContext("1321421","test"+i , "msg"+ i , "12311891","testUser" ,"132","1323","123"));
         }
     }
 

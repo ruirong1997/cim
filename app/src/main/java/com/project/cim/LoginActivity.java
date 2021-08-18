@@ -1,27 +1,26 @@
 package com.project.cim;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.Service;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.project.cim.databinding.ActivityLoginBinding;
 import com.project.common.Constance;
 import com.project.common.activity.BaseActivity;
 import com.project.common.api.bean.user.LoginBean;
-import com.project.common.api.bean.user.LoginDataBean;
 import com.project.common.api.controller.user.Login;
-import com.project.common.services.ServiceManager;
+import com.project.contacts.mode.Contacts;
 import com.project.utils.FileUtils;
 import com.project.utils.network.RetrofitUtils;
 
@@ -103,8 +102,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
     }
 
     public void login(View view) throws IOException {
-        ServiceManager.startServices(getApplicationContext());
-
+//      Service mService = (Service) ARouter.getInstance().build(Constance.SERVICE_KEEP_ALIVE).navigation();
         Log.d(TAG,"onClick");
         Log.d(TAG, String.valueOf(viewDataBinding.loginUser.getText()));
         FileUtils.CreateCacheFile(this,"000001");

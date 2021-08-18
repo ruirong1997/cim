@@ -48,7 +48,9 @@
             android:layout_height="@dimen/line_text_height"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/margin_left_10dp"
+            android:layout_marginRight="@dimen/dp_10"
             android:layout_toRightOf="@+id/item_msg_head"
+            android:layout_toLeftOf="@+id/msg_states"
             android:orientation="vertical">
 
             <TextView
@@ -70,7 +72,7 @@
                 android:layout_gravity="bottom"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:maxEms="10"
+                android:maxEms="15"
                 android:ellipsize="end"
                 android:text="@{model.context}"
                 android:textSize="@dimen/context_text_14sp" />
@@ -82,6 +84,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/msg_states"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/head_img_height"
             android:layout_centerVertical="true"
