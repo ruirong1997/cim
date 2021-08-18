@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/head_line"
+            android:background="@color/mainColor"
+            android:layout_alignParentTop="true">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:src="@drawable/back"
+                android:background="@color/mainColor"
+                android:onClick="back"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备故障"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提交"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/white"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_gravity="right"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_head"
+            android:overScrollMode="ifContentScrolls">
+
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/form_type"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <RelativeLayout
+                    android:id="@+id/lStation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40">
+
+                    <TextView
+                        android:id="@+id/tv_station"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="车站" />
+
+                    <TextView
+                        android:id="@+id/tv2_station"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tv_station"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:focusable="false"
+                        android:textCursorDrawable="@null"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:onClick="select_station"
+                        android:textSize="@dimen/sp_18"
+                        android:hint="请选择车站" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lDev"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_below="@+id/lStation"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_dev"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="设备类型" />
+
+                    <TextView
+                        android:id="@+id/tv2_dev"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tv_dev"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:focusable="false"
+                        android:textCursorDrawable="@null"
+                        android:background="@color/white"
+                        android:textSize="@dimen/sp_18"
+                        android:hint="请选择设备类型"
+                        android:gravity="center_vertical"
+                        android:onClick="select_dev"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lDevNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_below="@+id/lDev"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_DevNumber"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="设备编号" />
+
+                    <EditText
+                        android:id="@+id/et_DevNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tv_DevNumber"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:inputType="number"
+                        android:background="@color/white"
+                        android:textSize="@dimen/sp_18"
+                        android:hint="请填入设备编号"
+                        android:gravity="center_vertical" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lErrorType"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_below="@+id/lDevNumber"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_ErrorType"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="故障类型" />
+
+                    <TextView
+                        android:id="@+id/tv2_ErrorType"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tv_ErrorType"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:focusable="false"
+                        android:background="@color/white"
+                        android:textSize="@dimen/sp_18"
+                        android:hint="请选择故障类型"
+                        android:gravity="center_vertical"
+                        android:onClick="select_errorType"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lErrorLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_below="@+id/lErrorType"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_ErrorLevel"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="故障等级" />
+
+                    <TextView
+                        android:id="@+id/tv2_ErrorLevel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tv_ErrorLevel"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:focusable="false"
+                        android:background="@color/white"
+                        android:textSize="@dimen/sp_18"
+                        android:hint="请选择故障等级"
+                        android:gravity="center_vertical"
+                        android:onClick="select_errorLevel"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/lErrorDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/lErrorLevel"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_ErrorDetail"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_40"
+                        android:gravity="center"
+                        android:text="故障描述" />
+
+                    <EditText
+                        android:id="@+id/et_ErrorDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="8dp"
+                        android:layout_toRightOf="@+id/tv_ErrorDetail"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:background="@color/white"
+                        android:gravity="top"
+                        android:hint="请输入详情" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_below="@+id/lErrorDetail"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_Photo"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_40"
+                        android:gravity="center"
+                        android:text="照片" />
+
+                    <ImageButton
+                        android:id="@+id/Btn_Img1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/btn_status"
+                        android:src="@drawable/ic_add_picture"
+                        android:layout_toRightOf="@id/tv_Photo"
+                        android:onClick="onClickImg1">
+                    </ImageButton>
+
+                    <ImageButton
+                        android:visibility="gone"
+                        android:id="@+id/Btn_Img2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/btn_status"
+                        android:layout_marginLeft="@dimen/dp_8"
+                        android:layout_toRightOf="@id/Btn_Img1"
+                        android:src="@drawable/ic_add_picture"
+                        android:onClick="onClickImg2"/>
+
+                    <ImageButton
+                        android:visibility="gone"
+                        android:id="@+id/Btn_Img3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="@dimen/dp_8"
+                        android:layout_toRightOf="@id/Btn_Img2"
+                        android:background="@drawable/btn_status"
+                        android:src="@drawable/ic_add_picture"
+                        android:onClick="onClickImg3"/>
+
+                    <ImageButton
+                        android:visibility="gone"
+                        android:id="@+id/Btn_Img4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="@dimen/dp_60"
+                        android:layout_below="@+id/Btn_Img1"
+                        android:background="@drawable/btn_status"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:src="@drawable/ic_add_picture"
+                        android:onClick="onClickImg4"/>
+                    <ImageButton
+                        android:visibility="gone"
+                        android:id="@+id/Btn_Img5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/Btn_Img2"
+                        android:layout_toRightOf="@+id/Btn_Img4"
+                        android:layout_marginLeft="@dimen/dp_8"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:background="@drawable/btn_status"
+                        android:src="@drawable/ic_add_picture"
+                        android:onClick="onClickImg5"/>
+                    <ImageButton
+                        android:visibility="gone"
+                        android:id="@+id/Btn_Img6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/Btn_Img3"
+                        android:background="@drawable/btn_status"
+                        android:layout_toRightOf="@+id/Btn_Img5"
+                        android:layout_marginLeft="@dimen/dp_8"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:src="@drawable/ic_add_picture"
+                        android:onClick="onClickImg6"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

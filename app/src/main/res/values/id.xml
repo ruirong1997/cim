@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--login_activity-->
+    <item name="login_parent" type="id"/>
+    <item name="login_img" type="id"/>
+    <item name="login_user" type="id"/>
+    <item name="user_underline" type="id"/>
+    <item name="login_pwd" type="id"/>
+    <item name="login" type="id"/>
+    <item name="find_pwd" type="id"/>
+    <item name="new_user" type="id"/>
+    <item name="group" type="id"/>
+</resources>

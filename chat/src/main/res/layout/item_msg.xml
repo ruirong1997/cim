@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.project.chat.mode.MsgContext"/>
+        <variable
+            name="model"
+            type="MsgContext" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="@dimen/item_msg_line">
+        <!--动画需要添加这个 android:foreground="?android:attr/selectableItemBackground" -->
+
+        <FrameLayout
+            android:id="@+id/item_msg_head"
+            android:layout_width="@dimen/head_width"
+            android:layout_height="@dimen/head_height"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_left_10dp">
+
+
+            <ImageView
+                android:id="@+id/img_user"
+                android:layout_width="@dimen/head_img_width"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/head_img_height"
+                android:layout_centerVertical="true"
+                android:src="@drawable/head" />
+
+            <TextView
+                android:id="@+id/item_chat_msg_unread"
+                android:layout_width="@dimen/head_text_width"
+                android:layout_height="@dimen/head_text_height"
+                android:textSize="@dimen/head_text_size"
+                android:textColor="@color/white"
+                android:layout_marginLeft="5dp"
+                android:text="1"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:background="@drawable/sign" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/line_text_height"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_left_10dp"
+            android:layout_toRightOf="@+id/item_msg_head"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/msg_username"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@{model.sendUser}"
+                android:layout_marginTop="@dimen/margin_top_5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/context_text_16sp" />
+
+            <TextView
+                android:id="@+id/msg_context"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_top_5dp"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:maxEms="10"
+                android:ellipsize="end"
+                android:text="@{model.context}"
+                android:textSize="@dimen/context_text_14sp" />
+            <!--设置显示字数-->
+            <!--android:singleLine="true"-->
+            <!--android:maxEms="10"   -->
+            <!--android:ellipsize="end"-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/head_img_height"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_right_15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/msg_date"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@{model.time}"
+                android:layout_marginTop="@dimen/margin_top_5dp"
+                android:textSize="@dimen/context_text_14sp" />
+
+            <ImageView
+                android:id="@+id/item_chat_mute"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mute" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

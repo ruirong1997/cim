@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.project.cim">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />  <!--  开机广播-->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />                <!--震动-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />      <!--前台服务-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <!--网络信息-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 读取网络信息状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />         <!-- 允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />         <!-- 允许程序改变网络连接状态 -->
+
+    <uses-permission android:name="android.permission.CAMERA" />                 <!--相机-->
+    <uses-feature android:name="android.hardware.camera" android:required="true" />  <!--相机-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!--存储-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!--存储-->
+
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!--浮窗-->
+
+
+
+    <application
+        android:name=".application.AppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/Theme.Cim"
+        android:requestLegacyExternalStorage="true">
+
+        <activity
+            android:name="com.project.cim.LoginActivity"
+            android:theme="@style/Theme.Cim">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name="com.project.chat.ui.activity.ChatActivity"/>
+        <activity android:name="com.project.task.ui.activity.ReportActivity"/>
+        <activity android:name="com.project.order.ui.activity.OrderDescActivity"/>
+        <activity android:name="com.project.task.ui.activity.ErrorDevActivity"/>
+
+        <!--服务-->
+        <service android:name="com.project.common.services.MsgPushService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":msgPush"/>
+        <service android:name="com.project.common.services.KeepAliveService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":keepAlive"/>
+
+
+
+    </application>
+
+</manifest>

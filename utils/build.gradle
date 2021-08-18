@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion app_android.compileSdkVersion
+    buildToolsVersion app_android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion app_android.minSdkVersion
+        targetSdkVersion app_android.targetSdkVersion
+        versionCode app_android.versionCode
+        versionName app_android.versionName
+
+        testInstrumentationRunner app_android.testInstrumentationRunner
+        consumerProguardFiles app_android.consumerProguardFiles
+
+        buildConfigField "String","URL",  "\"$url.netty\""
+        buildConfigField "String","Service",  "\"$url.service\""
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        dataBinding {
+            enabled = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$app_dependencies_version.appcompat"
+    implementation "com.google.android.material:material:$app_dependencies_version.material"
+    //RxJava3
+    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    api 'io.reactivex.rxjava3:rxjava:3.0.0'
+    //Retrofit
+    api 'com.squareup.retrofit2:retrofit:2.6.1'
+    api 'com.squareup.retrofit2:converter-gson:2.6.1'
+    api 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    //GSon
+    api 'com.google.code.gson:gson:2.8.6'
+    //OkHttp3
+    api 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    implementation 'androidx.preference:preference:1.1.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/head_line"
+            android:background="@color/mainColor"
+            android:layout_alignParentTop="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="联系人"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contacts_list"
+            android:layout_below="@+id/toolbar_head"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingTop="0dp" />
+
+        <com.project.contacts.controller.SideBar
+            android:id="@+id/side_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_head"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:textColor="@color/dark"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</layout>

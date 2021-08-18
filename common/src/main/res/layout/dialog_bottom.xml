@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/dialog_view"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:padding="3dp"
+            android:background="@drawable/bottom_dialog_background">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dialog_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dialog_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_dialog_background"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="取消"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp" />
+
+    </LinearLayout>
+</layout>

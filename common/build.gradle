@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion app_android.compileSdkVersion
+    buildToolsVersion app_android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion app_android.minSdkVersion
+        targetSdkVersion app_android.targetSdkVersion
+        versionCode app_android.versionCode
+        versionName app_android.versionName
+
+        testInstrumentationRunner app_android.testInstrumentationRunner
+        consumerProguardFiles app_android.consumerProguardFiles
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        dataBinding {
+            enabled = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    api "androidx.appcompat:appcompat:$app_dependencies_version.appcompat"
+    api "com.google.android.material:material:$app_dependencies_version.material"
+    api "androidx.constraintlayout:constraintlayout:$app_dependencies_version.constraintlayout"
+    api files('libs/msgpack-0.6.12.jar')
+    api project(':utils')
+    //导航栏
+    api 'devlight.io:navigationtabbar:1.2.5'
+    //RecyclerView
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    //Preference
+    api 'androidx.preference:preference:1.1.1'
+    //Glide
+    api 'com.github.bumptech.glide:glide:4.8.0'
+    api 'jp.wasabeef:glide-transformations:4.0.1'
+    //汉字转拼音
+    api 'com.belerweb:pinyin4j:2.5.1'
+    //menu
+    api "com.github.skydoves:powermenu:2.1.9"
+
+
+    api  "com.alibaba:arouter-api:$app_dependencies_version.arouterApi"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    annotationProcessor "com.alibaba:arouter-compiler:$app_dependencies_version.arouterCompiler"
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

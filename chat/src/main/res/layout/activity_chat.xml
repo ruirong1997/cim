@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/msg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/head_line"
+            android:background="@color/mainColor"
+            android:layout_alignParentTop="true"
+            android:fitsSystemWindows="true"
+            app:contentInsetStart="0dp">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:src="@drawable/back"
+                android:background="@color/mainColor" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@drawable/search"
+                android:background="@color/mainColor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="用户名" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/msg_context"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_head"
+            android:layout_above="@id/bottom_line"
+            android:background="#ebebeb"/>
+
+        <!-- 底部控制栏 -->
+        <LinearLayout
+            android:id="@+id/bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <!-- 发送语音按钮 -->
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/btn_voice" />
+
+            <!-- 文本编辑框 -->
+            <EditText
+                android:id="@+id/et_input"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="7"
+                android:background="@drawable/edit_background"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:textSize="16sp" />
+
+            <!-- 发送按钮 -->
+            <Button
+                android:id="@+id/send"
+                android:layout_width="42dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/send_btn_bg"
+                android:padding="0dp"
+                android:text="发送"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <!-- 工具栏按钮 -->
+            <ImageButton
+                android:id="@+id/plus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0.5dp"
+                android:layout_toRightOf="@+id/emotion"
+                android:background="@drawable/button_message_plus" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

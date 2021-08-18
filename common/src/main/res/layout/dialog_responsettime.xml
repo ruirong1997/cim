@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <!--使用层层嵌套是为了使用百分比布局和宽高比-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_alert_dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="4:4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.85">
+
+        <TextView
+            android:id="@+id/tv_dialog_common_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="响应订单"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_dialog_common_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/gray"
+            android:ellipsize="end"
+            android:hint="订单Id"
+            android:lineSpacingExtra="@dimen/dp_8"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_common_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_common_responseTime" />
+
+        <TextView
+            android:id="@+id/tv_dialog_common_responseTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:ellipsize="end"
+            android:hint="响应时间"
+            android:lineSpacingExtra="@dimen/dp_8"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_common_id"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_common_state" />
+
+        <TextView
+            android:id="@+id/tv_dialog_common_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:ellipsize="end"
+            android:hint="状态"
+            android:lineSpacingExtra="@dimen/dp_8"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_common_responseTime"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_common_positive" />
+
+        <View
+            style="@style/Dialog_Divider"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_dialog_common_positive"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_dialog_common_positive"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            android:background="@drawable/btn_bottom_right_radius_status"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintLeft_toRightOf="@+id/tv_dialog_common_negative"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1" />
+
+        <View
+            android:layout_width="@dimen/dialog_divider"
+            android:layout_height="0dp"
+            android:background="@color/dialog_divider"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_common_positive"
+            app:layout_constraintLeft_toRightOf="@+id/tv_dialog_common_negative"
+            app:layout_constraintRight_toLeftOf="@+id/tv_dialog_common_positive"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_common_positive" />
+
+        <TextView
+            android:id="@+id/tv_dialog_common_negative"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            android:background="@drawable/btn_bottom_left_radius_status"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_common_positive"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_dialog_common_positive"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_common_positive" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
