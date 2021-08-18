@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
+import com.project.service.services.KeepAliveService;
+import com.project.service.services.MsgPushService;
+
 import java.util.List;
 
 public class ServiceManager {
@@ -29,7 +32,7 @@ public class ServiceManager {
     public static void startServices(Context context){
         //查询服务是否已经开启
         //消息推送服务
-        if (!isServiceExisted(context,"com.project.service.MsgPushService")){
+        if (!isServiceExisted(context,"com.project.service.services.MsgPushService")){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(new Intent(context, MsgPushService.class));
             } else {
@@ -37,7 +40,7 @@ public class ServiceManager {
             }
         }
         //监测保活服务
-        if (!isServiceExisted(context,"com.project.service.KeepAliveService")){
+        if (!isServiceExisted(context,"com.project.service.services.KeepAliveService")){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(new Intent(context, KeepAliveService.class));
             } else {

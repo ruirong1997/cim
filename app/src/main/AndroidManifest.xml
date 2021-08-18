@@ -55,7 +55,7 @@
         <activity android:name="com.project.task.ui.activity.ErrorDevActivity"/>
 
         <!--服务-->
-        <service android:name="com.project.service.MsgPushService"
+        <service android:name="com.project.service.services.MsgPushService"
             android:enabled="true"
             android:exported="true"
             android:process=":msgPush">
@@ -70,7 +70,7 @@
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </service>
-        <service android:name="com.project.service.KeepAliveService"
+        <service android:name="com.project.service.services.KeepAliveService"
             android:enabled="true"
             android:exported="true"
             android:process=":keepAlive">
